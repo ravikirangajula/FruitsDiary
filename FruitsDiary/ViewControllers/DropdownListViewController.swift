@@ -7,11 +7,16 @@
 
 import UIKit
 
-class DropdownListViewController: UIViewController {
+class DropdownListViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var availableFruits = UserDefaults.standard.availableFruits
     var tableViewItemSelected: ((_ list: AvailableFruit) -> ())?
+
+    static func instantiate() -> DropdownListViewController {
+      let vc = instantiate(viewControllerIdentifier: "DropdownListViewController") as! DropdownListViewController
+      return vc
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,12 +41,8 @@ extension DropdownListViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier) as? DetailTableViewCell {
             if availableFruits.indices.contains(indexPath.row) {
-                cell.nameLabel.text = availableFruits[indexPath.row].type ?? ""
-                cell.fruitCount.text = "Fruits quantity 1"
-                cell.vitamins.text = "Vitamins: \(availableFruits[indexPath.row].vitamins))"
-                ImageDownLoadHelper.downloaded(from: BASE_URL + "\(availableFruits[indexPath.row].image ?? "image/apple.png")", completionHandler: { image in
-                    cell.fruitImageView.image = image
-                })
+                let detailObject = DetailCell(fruitName: availableFruits[indexPath.row].type, fruitsCount: 1, fruitVitamins: availableFruits[indexPath.row].vitamins, fruitImage: availableFruits[indexPath.row].image)
+                cell.setUpCell(item: detailObject)
             }
             return cell
         }

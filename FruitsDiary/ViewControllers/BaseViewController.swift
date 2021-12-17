@@ -15,9 +15,7 @@ class BaseViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func presentViewController(fromVC:UIViewController, toVCIdentifer:String) {
-        
-        
+    static func instantiate(viewControllerIdentifier: String) -> UIViewController? {
+      return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: viewControllerIdentifier)
     }
-
 }

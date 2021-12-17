@@ -16,6 +16,7 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "My Entries"
         viewModel = HomeViewModel()
         setNavigationItems()
         setUpTableView()
@@ -29,7 +30,7 @@ class HomeViewController: BaseViewController {
     }
     
     @objc func addTapped() {
-        guard let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "AddListViewController") as? FruitEntryViewController else  { return }
+        let vc = FruitEntryViewController.instantiate()
         vc.modalPresentationStyle = .fullScreen
         let navVC = UINavigationController(rootViewController: vc)
         self.present(navVC, animated: true, completion: nil)

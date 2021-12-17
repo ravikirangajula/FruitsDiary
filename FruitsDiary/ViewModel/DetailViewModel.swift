@@ -8,6 +8,13 @@
 import Foundation
 import UIKit
 
+struct DetailCell {
+    var fruitName:String?
+    var fruitsCount:Int?
+    var fruitVitamins:Int?
+    var fruitImage:String?
+}
+
 class DetailViewModel: NSObject {
     
     var editEntry: ((_ item : FruitEntryFields?) -> ())?
@@ -44,6 +51,13 @@ class DetailViewModel: NSObject {
         editEntry?(refObject)
     }
     
+    private func getImageForID(row:Int) -> String? {
+        if let fruitID = item.fruit?[row].fruitId {
+            return availableFruits.first(where: {$0.id == fruitID})?.image
+        }
+        return nil
+    }
+    
 }
 
 extension DetailViewModel: UITableViewDataSource {
@@ -54,12 +68,10 @@ extension DetailViewModel: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier) as? DetailTableViewCell {
-            cell.nameLabel.text = item.fruit?[indexPath.row].fruitType ?? "-"
-            cell.fruitCount.text = "Fruits Intake \(item.fruit?[indexPath.row].amount ?? 0)"
-            cell.vitamins.text = "Vitamins\(getTotalCalories(for: indexPath.row))"
-            ImageDownLoadHelper.downloaded(from: BASE_URL + "\(availableFruits[indexPath.row].image ?? "image/apple.png")", completionHandler: { image in
-                cell.fruitImageView.image = image
-            })
+            if let item = item.fruit?[indexPath.row] {
+                let detailObject = DetailCell(fruitName: item.fruitType, fruitsCount: item.amount, fruitVitamins: getTotalCalories(for: indexPath.row), fruitImage: getImageForID(row: indexPath.row))
+                cell.setUpCell(item: detailObject)
+            }
             return cell
         }
         return UITableViewCell()

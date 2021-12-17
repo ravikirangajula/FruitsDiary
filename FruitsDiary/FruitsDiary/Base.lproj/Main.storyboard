@@ -51,11 +51,11 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zFo-x9-qNK">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VFy-vD-kka"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="VFy-vD-kka" firstAttribute="trailing" secondItem="zFo-x9-qNK" secondAttribute="trailing" id="0ZY-3o-sU2"/>
                             <constraint firstItem="zFo-x9-qNK" firstAttribute="top" secondItem="VFy-vD-kka" secondAttribute="top" id="7r5-WE-BNm"/>
@@ -74,7 +74,7 @@
         <!--Fruit Entry View Controller-->
         <scene sceneID="369-N4-ERU">
             <objects>
-                <viewController restorationIdentifier="AddListViewController" storyboardIdentifier="AddListViewController" id="Fvc-qw-2nk" customClass="FruitEntryViewController" customModule="FruitsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="FruitEntryViewController" storyboardIdentifier="FruitEntryViewController" id="Fvc-qw-2nk" customClass="FruitEntryViewController" customModule="FruitsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MWN-5c-QF7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -220,11 +220,11 @@
             </objects>
             <point key="canvasLocation" x="548" y="125"/>
         </scene>
-        <!--Activity-->
+        <!--My Diary-->
         <scene sceneID="jmH-MJ-gve">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HBt-9x-4hE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Activity" image="square.and.arrow.up" catalog="system" selectedImage="square.and.arrow.down" id="rGH-De-iyF"/>
+                    <tabBarItem key="tabBarItem" title="My Diary" image="note.text.badge.plus" catalog="system" selectedImage="note.text.badge.plus" id="rGH-De-iyF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="anz-MC-sSP">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -263,8 +263,7 @@
     </scenes>
     <resources>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
-        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="note.text.badge.plus" catalog="system" width="128" height="108"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

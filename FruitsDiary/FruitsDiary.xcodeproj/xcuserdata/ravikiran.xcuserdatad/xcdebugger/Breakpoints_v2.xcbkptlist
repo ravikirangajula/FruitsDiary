@@ -242,38 +242,6 @@
             endingLineNumber = "47"
             landmarkName = "cancel()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "7C131306-9B9A-4376-B6FD-52C9B9E09CDD - d4a62bd442ea680a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FruitsDiary.AddListViewController.cancel() -&gt; ()"
-                  moduleName = "FruitsDiary"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ravikiran/Desktop/FruitsDiary/ViewControllers/AddListViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "135">
-               </Location>
-               <Location
-                  uuid = "7C131306-9B9A-4376-B6FD-52C9B9E09CDD - 78d41616ede66397"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in FruitsDiary.AddListViewController.cancel() -&gt; ()"
-                  moduleName = "FruitsDiary"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ravikiran/Desktop/FruitsDiary/ViewControllers/AddListViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "47">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -15,7 +15,7 @@ struct FruitEntryFields {
     var fruitQuantity:Int?
 }
 
-class FruitEntryViewController: UIViewController {
+class FruitEntryViewController: BaseViewController {
     
     @IBOutlet weak var firstStack: UIStackView!
     @IBOutlet weak var fruitTypeField: UITextField!
@@ -29,6 +29,11 @@ class FruitEntryViewController: UIViewController {
         return FruitEntryViewModel()
     }()
 
+    static func instantiate() -> FruitEntryViewController {
+      let vc = instantiate(viewControllerIdentifier: "FruitEntryViewController") as! FruitEntryViewController
+      return vc
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.setLeftBarButton(UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel)), animated: true)
@@ -73,7 +78,6 @@ class FruitEntryViewController: UIViewController {
     @objc func dismissKeyBoard() {
         self.view.endEditing(true)
     }
-    
 
 }
 
@@ -117,7 +121,7 @@ extension FruitEntryViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == fruitTypeField {
-            guard let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "DropdownListViewController") as? DropdownListViewController else  { return false }
+            let vc = DropdownListViewController.instantiate()
             vc.tableViewItemSelected = self.tableViewItemSelected
             self.navigationController?.pushViewController(vc, animated: true)
             return false
@@ -125,7 +129,6 @@ extension FruitEntryViewController: UITextFieldDelegate {
         return true
     }
     
-
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.validation()
     }
@@ -134,7 +137,7 @@ extension FruitEntryViewController: UITextFieldDelegate {
 //MARK: Callbacks
 extension FruitEntryViewController {
     private func tableViewItemSelected(_ list: AvailableFruit) {
-        if let obj = self.fruitEntryObj {
+        if let _ = self.fruitEntryObj {
             self.fruitEntryObj?.fruitType = list.type
             self.fruitEntryObj?.fruitId = list.id
         } else {

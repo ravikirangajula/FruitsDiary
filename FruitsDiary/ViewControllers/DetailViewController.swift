@@ -7,13 +7,18 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: BaseViewController {
 
     @IBOutlet weak var detailTableView: UITableView!
     public var item = CurrentEntires()
     lazy var viewModel: DetailViewModel = { [weak self] in
         return DetailViewModel()
     }()
+    
+    static func DetailViewController() -> DetailViewController {
+      let vc = instantiate(viewControllerIdentifier: "DetailViewController") as! DetailViewController
+      return vc
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +49,7 @@ class DetailViewController: UIViewController {
 extension DetailViewController {
     
     func editEntry(_ item : FruitEntryFields?) {
-        guard let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "AddListViewController") as? FruitEntryViewController else  { return }
+        let vc = FruitEntryViewController.instantiate()
         vc.fruitEntryObj = item
         vc.mode = .edit
         let navVC = UINavigationController(rootViewController: vc)
