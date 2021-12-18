@@ -16,7 +16,7 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "My Entries"
+        self.title = "My Diary"
         viewModel = HomeViewModel()
         setNavigationItems()
         setUpTableView()

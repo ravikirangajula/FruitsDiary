@@ -31,6 +31,7 @@ class DetailViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.editEntry = self.editEntry
+        detailTableView.reloadData()
     }
     
     private func setUpTableView() {
@@ -54,6 +55,7 @@ extension DetailViewController {
         vc.fruitEntryObj = item
         vc.mode = .edit
         let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = .fullScreen
         self.present(navVC, animated: true, completion: nil)
     }
 }

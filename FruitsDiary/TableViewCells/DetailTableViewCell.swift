@@ -31,13 +31,13 @@ class DetailTableViewCell: UITableViewCell {
     
     func setUpCell(item:DetailCell) {
         if let name = item.fruitName {
-            nameLabel.text = name
+            nameLabel.text = name.capitalized
         }
-        if let count = item.fruitVitamins {
-            fruitCount.text = "Fruits Intake \(count)"
+        if let vitaminCounts = item.fruitVitamins {
+            vitamins.text =  "Vitamins : \(vitaminCounts)"
         }
-        if let vitaminsCount = item.fruitsCount {
-            vitamins.text =  "Vitamins \(vitaminsCount)"
+        if let count = item.fruitsCount {
+            fruitCount.text = "No. of Fruits : \(count)"
         }
         if let image = item.fruitImage {
             ImageDownLoadHelper.downloaded(from: BASE_DOMAIN + image, completionHandler: { [weak self] image in
