@@ -38,9 +38,8 @@ class FruitEntryViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.setLeftBarButton(UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel)), animated: true)
-        navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save)), animated: true)
-        navigationItem.rightBarButtonItem?.isEnabled = false
+        self.title = "Add Entry"
+        setNavigationItems()
         addGesture()
         addDatePicker()
     }
@@ -54,7 +53,6 @@ class FruitEntryViewController: BaseViewController {
     @objc func cancel() {
         DispatchQueue.main.async {
             self.dismiss(animated: true, completion: nil)
-            self.presentingViewController?.viewWillAppear(true)
         }
     }
     
@@ -70,7 +68,10 @@ class FruitEntryViewController: BaseViewController {
             viewModel.items = item
             viewModel.mode = mode
             viewModel.submitEntry(items: item) { [weak self] isSucces in
-                self?.cancel()
+                if isSucces {
+                    print("Cancelled Called")
+                    self?.cancel()
+                }
             }
         }
     }
@@ -81,7 +82,16 @@ class FruitEntryViewController: BaseViewController {
     @objc func dismissKeyBoard() {
         self.view.endEditing(true)
     }
+}
 
+//MARK: UI
+extension FruitEntryViewController {
+    
+    private func setNavigationItems() {
+        navigationItem.setLeftBarButton(UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel)), animated: true)
+        navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save)), animated: true)
+        navigationItem.rightBarButtonItem?.isEnabled = false
+    }
 }
 
 //MARK: Private methods
@@ -110,7 +120,7 @@ extension FruitEntryViewController {
         if let type = currentEntryObj.fruitType, !type.isEmpty {
             self.fruitTypeField.text = type
         }
-        if let amount = currentEntryObj.fruitQuantity{
+        if let amount = currentEntryObj.fruitQuantity, amount > 0 {
             self.fruitCOunt.text = "\(amount)"
         }
         if let fruitID = currentEntryObj.fruitId{
@@ -118,11 +128,6 @@ extension FruitEntryViewController {
         }
         if let date = currentEntryObj.entryDate {
             self.datePicker.date = date.getDateFromString()
-//            let formatter = DateFormatter()
-//            formatter.dateFormat = "yyyy-MM-dd"
-//            formatter.timeZone = TimeZone.current
-//            let dateOut = formatter.date(from: date)
-//            self.datePicker.date = dateOut ?? Date()
         }
     }
     

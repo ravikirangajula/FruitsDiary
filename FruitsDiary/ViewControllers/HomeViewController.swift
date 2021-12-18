@@ -24,16 +24,18 @@ class HomeViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("VIEW WILL APPEAR")
         viewModel.refreshList()
+        reloadTableView()
         viewModel.reloadTableView = self.reloadTableView
         viewModel.tableViewItemSelected = tableViewItemSelected
     }
     
     @objc func addTapped() {
         let vc = FruitEntryViewController.instantiate()
-        vc.modalPresentationStyle = .fullScreen
         vc.currentEntriesList = viewModel.allEntries
         let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = .fullScreen
         self.present(navVC, animated: true, completion: nil)
     }
     

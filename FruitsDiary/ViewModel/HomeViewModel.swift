@@ -38,12 +38,12 @@ extension HomeViewModel {
     }
     
     private func getCurrentEntries() {
-        APIWrapper.getRequest(with: "https://fruitdiary.test.themobilelife.com/api/entries", decodingType: [CurrentEntires].self) { [weak self] res, Error in
-            if let res1 = res as? [CurrentEntires] {
-                print("res == \(res1)")
-                print("Error == \(Error)")
-                let list = res1.filter({$0.fruit?.count ?? 0 > 0})
-                self?.allEntries = list
+        APIWrapper.getRequest(with: "https://fruitdiary.test.themobilelife.com/api/entries", decodingType: [CurrentEntires].self) { [weak self] entries, Error in
+            if let currentEntries = entries as? [CurrentEntires] {
+                print("Current Entries == \(currentEntries)")
+                print("Current Entries Error == \(String(describing: Error))")
+                let sortedList = currentEntries.filter({$0.fruit?.count ?? 0 > 0}).sorted(by: { ($0.date ?? "0") > ($1.date ?? "0")})
+                self?.allEntries = sortedList
                 self?.reloadTableView?()
             }
         }
@@ -94,7 +94,7 @@ extension HomeViewModel {
         guard let url = URL(string: String(url)) else { return }
         APIWrapper.deleteRequest(url: url) { [weak self] isSuccess in
             self?.refreshList()
-            self?.reloadTableView?()
+           // self?.reloadTableView?()
         }
     }
 }

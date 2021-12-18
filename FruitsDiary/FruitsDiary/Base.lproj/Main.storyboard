@@ -188,17 +188,33 @@
             </objects>
             <point key="canvasLocation" x="4811" y="-77"/>
         </scene>
-        <!--View Controller-->
+        <!--About-->
         <scene sceneID="O3m-cR-Sk1">
             <objects>
                 <viewController id="IuJ-la-oca" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DwK-S6-IXa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dcz-nk-jjZ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">My Fruits Diary is a mobile application where you can store the number of fruits you have eaten each day. The user is able to add date entries and for each date choose the fruits eaten on that specific day. The application consumes a webservice where the current entries and fruits are located</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="YFW-ha-mjv"/>
                         <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dcz-nk-jjZ" firstAttribute="leading" secondItem="YFW-ha-mjv" secondAttribute="leading" id="Aej-aP-F8n"/>
+                            <constraint firstItem="YFW-ha-mjv" firstAttribute="bottom" secondItem="dcz-nk-jjZ" secondAttribute="bottom" id="bDe-pr-Rkw"/>
+                            <constraint firstItem="dcz-nk-jjZ" firstAttribute="top" secondItem="DwK-S6-IXa" secondAttribute="top" id="hvy-Lh-hLS"/>
+                            <constraint firstItem="YFW-ha-mjv" firstAttribute="trailing" secondItem="dcz-nk-jjZ" secondAttribute="trailing" id="nyD-3f-4ac"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Esc-Az-Dqc"/>
+                    <navigationItem key="navigationItem" title="About" id="Esc-Az-Dqc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="133-g4-Ln3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -268,6 +284,9 @@
     <resources>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="note.text.badge.plus" catalog="system" width="128" height="108"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

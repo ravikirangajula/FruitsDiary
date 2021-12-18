@@ -52,8 +52,12 @@ class FruitEntryViewModel: NSObject {
             createEntery(date: date) { entryID in
                 if let id = entryID {
                     self.addFruitsToEntry(enteryID: String(id), fruit: items.fruitID, amount: items.count) {  isSuccess in
+                        print("createEntery Success with ")
                         completion(isSuccess)
                     }
+                } else {
+                    print("createEntery fail with ")
+                    completion(false)
                 }
             }
         }
@@ -71,7 +75,8 @@ class FruitEntryViewModel: NSObject {
                 print("createEntery Success == \(res)")
                 completion(res.id)
             } else {
-                print("createEntery Error == \(error)")
+                print("createEntery Error == \(String(describing: error))")
+                completion(nil)
             }
         }
     }
@@ -81,9 +86,11 @@ class FruitEntryViewModel: NSObject {
             guard let _ = self else { return }
             if let data = data as? SuccessResponse {
                 if data.code == 200 {
+                    print("AddFruitsToEntry Success == \(data)")
                     completion(true)
                 }
-                print("addFruitsToEntry Success == \(data)")
+            } else {
+                completion(false)
             }
         }
     }
