@@ -28,7 +28,7 @@ extension HomeViewModel {
     
   
     private func getAvailableFruisList() {
-        APIWrapper.getRequest(with: "https://fruitdiary.test.themobilelife.com/api/fruit", decodingType: [AvailableFruit].self) { [weak self] res, Error in
+        APIWrapper.getRequest(with: AVAILABLE_FRUITS, decodingType: [AvailableFruit].self) { [weak self] res, Error in
             guard let self = self else { return }
             if let responseObj = res as? [AvailableFruit]{
                 self.availableFruits = responseObj
@@ -38,7 +38,7 @@ extension HomeViewModel {
     }
     
     private func getCurrentEntries() {
-        APIWrapper.getRequest(with: "https://fruitdiary.test.themobilelife.com/api/entries", decodingType: [CurrentEntires].self) { [weak self] entries, Error in
+        APIWrapper.getRequest(with: COMMON_URL, decodingType: [CurrentEntires].self) { [weak self] entries, Error in
             if let currentEntries = entries as? [CurrentEntires] {
                 print("Current Entries == \(currentEntries)")
                 print("Current Entries Error == \(String(describing: Error))")
@@ -50,7 +50,7 @@ extension HomeViewModel {
     }
     
     private func deleteSingleEntry(entryID:Int) {
-        let url = "https://fruitdiary.test.themobilelife.com/api/entry/\(entryID)"
+        let url = DELETE_SIGNLE_ENTRY + "\(entryID)"
         self.deleteEntry(url: url)
     }
     
@@ -90,7 +90,7 @@ extension HomeViewModel {
         getCurrentEntries()
     }
     
-    func deleteEntry(url:String = "https://fruitdiary.test.themobilelife.com/api/entries") {
+    func deleteEntry(url:String = COMMON_URL) {
         guard let url = URL(string: String(url)) else { return }
         APIWrapper.deleteRequest(url: url) { [weak self] isSuccess in
             self?.refreshList()

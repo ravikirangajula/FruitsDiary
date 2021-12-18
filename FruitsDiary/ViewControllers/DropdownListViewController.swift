@@ -20,6 +20,7 @@ class DropdownListViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Available Fruits"
         setUpTableViewCell()
         tableView.delegate = self
         tableView.dataSource = self

@@ -40,7 +40,7 @@ class DetailTableViewCell: UITableViewCell {
             vitamins.text =  "Vitamins \(vitaminsCount)"
         }
         if let image = item.fruitImage {
-            ImageDownLoadHelper.downloaded(from: BASE_URL + image, completionHandler: { [weak self] image in
+            ImageDownLoadHelper.downloaded(from: BASE_DOMAIN + image, completionHandler: { [weak self] image in
                 self?.fruitImageView.image = image
             })
         }

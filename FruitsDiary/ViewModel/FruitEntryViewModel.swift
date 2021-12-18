@@ -70,7 +70,7 @@ class FruitEntryViewModel: NSObject {
     
     private func createEntery(date:String, completion: @escaping(_ enteryId: Int?) -> ()) {
         let parms:[String:Any] = ["date": date]
-        APIWrapper.postRequest(with: "https://fruitdiary.test.themobilelife.com/api/entries", parms: parms, decodingType: CurrentEntires.self) { res, error in
+        APIWrapper.postRequest(with: COMMON_URL, parms: parms, decodingType: CurrentEntires.self) { res, error in
             if let res = res  as? CurrentEntires {
                 print("createEntery Success == \(res)")
                 completion(res.id)
@@ -82,7 +82,7 @@ class FruitEntryViewModel: NSObject {
     }
     
     private func addFruitsToEntry(enteryID: String, fruit:Int, amount:String, completion: @escaping(_ Success: Bool) -> ()) {
-        APIWrapper.postRequest(with: "https://fruitdiary.test.themobilelife.com/api/entry/\(enteryID)/fruit/\(fruit)?amount=\(amount)", decodingType: SuccessResponse.self) { [weak self] data, error in
+        APIWrapper.postRequest(with: ADD_SIGNLE_ENTRY + "\(enteryID)/fruit/\(fruit)?amount=\(amount)", decodingType: SuccessResponse.self) { [weak self] data, error in
             guard let _ = self else { return }
             if let data = data as? SuccessResponse {
                 if data.code == 200 {

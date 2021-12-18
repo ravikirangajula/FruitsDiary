@@ -22,6 +22,7 @@ class DetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Entry Details"
         viewModel = DetailViewModel(list: item)
         setUpTableViewCell()
         setUpTableView()

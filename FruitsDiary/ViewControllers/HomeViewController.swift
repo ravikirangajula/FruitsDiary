@@ -24,7 +24,6 @@ class HomeViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("VIEW WILL APPEAR")
         viewModel.refreshList()
         reloadTableView()
         viewModel.reloadTableView = self.reloadTableView

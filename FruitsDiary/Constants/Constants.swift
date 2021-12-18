@@ -8,7 +8,10 @@
 import Foundation
 import UIKit
 
-let CORNER_RADIUS:CGFloat = 10.0
-let BASE_URL = "https://fruitdiary.test.themobilelife.com/"
-let DELETE_ALL_ENTRIES = "\(BASE_URL)/api/entries"
-let CREATE_ENTRY = "\(BASE_URL)/api/entries"
+let CORNER_RADIUS:CGFloat   = 10.0
+let BASE_DOMAIN             = "https://fruitdiary.test.themobilelife.com/"
+let COMMON_URL              = "\(BASE_DOMAIN)api/entries"
+let AVAILABLE_FRUITS        = "\(BASE_DOMAIN)api/fruit"
+let DELETE_SIGNLE_ENTRY     = "\(BASE_DOMAIN)api/entry/"
+let ADD_SIGNLE_ENTRY        = "\(BASE_DOMAIN)api/entry/"
+let DATE_FORMATTER          = "yyyy-MM-dd"

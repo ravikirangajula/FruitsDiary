@@ -16,7 +16,6 @@
 		B86837CF2765EA150069E360 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86837CD2765EA150069E360 /* LaunchScreen.storyboard */; };
 		B86837D82765F6320069E360 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86837D62765F6320069E360 /* HomeViewCell.swift */; };
 		B86837D92765F6320069E360 /* HomeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B86837D72765F6320069E360 /* HomeViewCell.xib */; };
-		B86837DC2765FA2F0069E360 /* FruitEnteryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86837DB2765FA2F0069E360 /* FruitEnteryDataSource.swift */; };
 		B86837DF276607420069E360 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86837DE276607420069E360 /* HomeViewModel.swift */; };
 		B86837E2276608010069E360 /* APIWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86837E1276608010069E360 /* APIWrapper.swift */; };
 		B86E9A3F2768B8F4002F9F41 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86E9A3E2768B8F4002F9F41 /* DetailViewController.swift */; };
@@ -49,7 +48,6 @@
 		B86837D02765EA150069E360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B86837D62765F6320069E360 /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		B86837D72765F6320069E360 /* HomeViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewCell.xib; sourceTree = "<group>"; };
-		B86837DB2765FA2F0069E360 /* FruitEnteryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitEnteryDataSource.swift; sourceTree = "<group>"; };
 		B86837DE276607420069E360 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B86837E1276608010069E360 /* APIWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIWrapper.swift; sourceTree = "<group>"; };
 		B86E9A3E2768B8F4002F9F41 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -88,7 +86,6 @@
 				B8AD8CED276C6F80008E2D5E /* ViewControllers */,
 				B8AD8CEC276C6F4E008E2D5E /* TableViewCells */,
 				B86837DD276607250069E360 /* ViewModel */,
-				B86837DA2765FA040069E360 /* DataSources */,
 				B8AD8CEE276C6FA4008E2D5E /* Helpers */,
 				B8AD8CE9276C6F08008E2D5E /* Extensions */,
 				B8AD8CE4276C438D008E2D5E /* Constants */,
@@ -117,14 +114,6 @@
 				B86837D02765EA150069E360 /* Info.plist */,
 			);
 			path = FruitsDiary;
-			sourceTree = "<group>";
-		};
-		B86837DA2765FA040069E360 /* DataSources */ = {
-			isa = PBXGroup;
-			children = (
-				B86837DB2765FA2F0069E360 /* FruitEnteryDataSource.swift */,
-			);
-			path = DataSources;
 			sourceTree = "<group>";
 		};
 		B86837DD276607250069E360 /* ViewModel */ = {
@@ -282,7 +271,6 @@
 				B8AD8CF7276C82B0008E2D5E /* SuccessModel.swift in Sources */,
 				B86E9A422768BB6E002F9F41 /* DetailTableViewCell.swift in Sources */,
 				B86E9A4D276AC48F002F9F41 /* DropdownListViewController.swift in Sources */,
-				B86837DC2765FA2F0069E360 /* FruitEnteryDataSource.swift in Sources */,
 				B86837DF276607420069E360 /* HomeViewModel.swift in Sources */,
 				B8AD8CE6276C43B2008E2D5E /* Constants.swift in Sources */,
 				B8AD8CF5276C8295008E2D5E /* FruitDetailsModel.swift in Sources */,
