@@ -45,7 +45,7 @@ class DetailViewModel: NSObject {
         return totla
     }
     
-    private func editSelectedItem(row:Int) {
+    private func entryToEdit(for row:Int) {
         guard let obj = item.fruit?[row] else {return }
         let refObject = FruitEntryFields(entryDate: item.date, entryId: item.id, fruitId: obj.fruitId, fruitType: obj.fruitType, fruitQuantity: obj.amount)
         editEntry?(refObject)
@@ -86,7 +86,7 @@ extension DetailViewModel: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let editButton = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
-            self.editSelectedItem(row: indexPath.row)
+            self.entryToEdit(for: indexPath.row)
         }
         let swipeActions = UISwipeActionsConfiguration(actions: [editButton])
         return swipeActions

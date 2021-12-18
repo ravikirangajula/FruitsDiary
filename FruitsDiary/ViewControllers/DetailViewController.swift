@@ -10,7 +10,7 @@ import UIKit
 class DetailViewController: BaseViewController {
 
     @IBOutlet weak var detailTableView: UITableView!
-    public var item = CurrentEntires()
+    var item = CurrentEntires()
     lazy var viewModel: DetailViewModel = { [weak self] in
         return DetailViewModel()
     }()

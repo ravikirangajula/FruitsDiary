@@ -244,5 +244,133 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "116144BF-364A-4E5B-A5F6-D3FF59C725CA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ViewModel/FruitEntryViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "submitEntry(items:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5B9A17E1-CE8F-41DF-A809-7E72C9A78AF7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ViewModel/FruitEntryViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "getEntryId(stringDate:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5B9A17E1-CE8F-41DF-A809-7E72C9A78AF7 - a7e7e6ef8f9de1c0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FruitsDiary.FruitEntryViewModel.getEntryId(stringDate: Swift.String) -&gt; Swift.Optional&lt;Swift.Int&gt;"
+                  moduleName = "FruitsDiary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ravikiran/Assignment/FruitsDiary/FruitsDiary/ViewModel/FruitEntryViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "47">
+               </Location>
+               <Location
+                  uuid = "5B9A17E1-CE8F-41DF-A809-7E72C9A78AF7 - df5d7ce303f6c49f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (FruitsDiary.CurrentEntires) -&gt; Swift.Bool in FruitsDiary.FruitEntryViewModel.getEntryId(stringDate: Swift.String) -&gt; Swift.Optional&lt;Swift.Int&gt;"
+                  moduleName = "FruitsDiary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ravikiran/Assignment/FruitsDiary/FruitsDiary/ViewModel/FruitEntryViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "38">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "73582DBF-1A0A-4B02-8C70-F9F3D99916A7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ViewModel/FruitEntryViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "submitEntry(items:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "73582DBF-1A0A-4B02-8C70-F9F3D99916A7 - f4f60faef9d0e244"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FruitsDiary.FruitEntryViewModel.submitEntry(items: FruitsDiary.AddEntryParms, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "FruitsDiary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ravikiran/Assignment/FruitsDiary/FruitsDiary/ViewModel/FruitEntryViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "830">
+               </Location>
+               <Location
+                  uuid = "73582DBF-1A0A-4B02-8C70-F9F3D99916A7 - e3a5fed1b15a6ebd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Bool) -&gt; () in FruitsDiary.FruitEntryViewModel.submitEntry(items: FruitsDiary.AddEntryParms, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "FruitsDiary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ravikiran/Assignment/FruitsDiary/FruitsDiary/ViewModel/FruitEntryViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "41">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1AE55FD1-A981-45AE-BE1D-A23CBF338A9C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ViewControllers/FruitEntryViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "configureFields()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

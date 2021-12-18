@@ -12,24 +12,23 @@ class DropdownListViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     var availableFruits = UserDefaults.standard.availableFruits
     var tableViewItemSelected: ((_ list: AvailableFruit) -> ())?
-
+    
     static func instantiate() -> DropdownListViewController {
-      let vc = instantiate(viewControllerIdentifier: "DropdownListViewController") as! DropdownListViewController
-      return vc
+        let vc = instantiate(viewControllerIdentifier: "DropdownListViewController") as! DropdownListViewController
+        return vc
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableViewCell()
         tableView.delegate = self
         tableView.dataSource = self
         self.tableView.reloadData()
-        // Do any additional setup after loading the view.
     }
+    
     private func setUpTableViewCell() {
         self.tableView.register(UINib(nibName: DetailTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: DetailTableViewCell.identifier)
     }
-
     
 }
 
@@ -55,7 +54,6 @@ extension DropdownListViewController: UITableViewDelegate, UITableViewDataSource
             self.navigationController?.popViewController(animated: false)
         }
     }
-
     
 }
 

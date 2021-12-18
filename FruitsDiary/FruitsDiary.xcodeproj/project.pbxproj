@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B86022F4276D643500B2491C /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86022F3276D643500B2491C /* String+Extension.swift */; };
 		B86837C32765EA120069E360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86837C22765EA120069E360 /* AppDelegate.swift */; };
 		B86837C52765EA120069E360 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86837C42765EA120069E360 /* SceneDelegate.swift */; };
 		B86837C72765EA120069E360 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86837C62765EA120069E360 /* HomeViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B86022F3276D643500B2491C /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		B86837BF2765EA120069E360 /* FruitsDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitsDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86837C22765EA120069E360 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B86837C42765EA120069E360 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			children = (
 				B86E9A4627695B1B002F9F41 /* UserDefaults+extension.swift */,
 				B8AD8CEA276C6F26008E2D5E /* UIView+Extension.swift */,
+				B86022F3276D643500B2491C /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				B86E9A452768BC23002F9F41 /* DetailViewModel.swift in Sources */,
 				B8AD8CEB276C6F26008E2D5E /* UIView+Extension.swift in Sources */,
 				B86E9A4727695B1B002F9F41 /* UserDefaults+extension.swift in Sources */,
+				B86022F4276D643500B2491C /* String+Extension.swift in Sources */,
 				B86837C72765EA120069E360 /* HomeViewController.swift in Sources */,
 				B8AD8CF9276C8361008E2D5E /* BaseViewController.swift in Sources */,
 				B8AD8CE3276B62D3008E2D5E /* FruitEntryViewModel.swift in Sources */,

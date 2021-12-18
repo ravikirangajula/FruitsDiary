@@ -32,6 +32,7 @@ class HomeViewController: BaseViewController {
     @objc func addTapped() {
         let vc = FruitEntryViewController.instantiate()
         vc.modalPresentationStyle = .fullScreen
+        vc.currentEntriesList = viewModel.allEntries
         let navVC = UINavigationController(rootViewController: vc)
         self.present(navVC, animated: true, completion: nil)
     }

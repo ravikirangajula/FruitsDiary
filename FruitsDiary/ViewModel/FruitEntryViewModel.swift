@@ -22,12 +22,19 @@ struct AddEntryParms {
 class FruitEntryViewModel: NSObject {
     var items:AddEntryParms?
     var mode:Mode = .entry
-    
+    var currentEntriesList = [CurrentEntires]()
+   
     override init() {
         super.init()
     }
     
-    public func submitEntry(items:AddEntryParms, completion: @escaping(Bool) -> ()) {
+    convenience init(currentEntries:[CurrentEntires]) {
+        self.init()
+        currentEntriesList = currentEntries
+    }
+    
+     func submitEntry(items:AddEntryParms, completion: @escaping(Bool) -> ()) {
+
         switch mode {
         case .edit:
             guard let entryId = items.id else { return }
@@ -36,6 +43,12 @@ class FruitEntryViewModel: NSObject {
             }
         default:
             guard let date = items.date else { return }
+            if let entryID = getEntryId(stringDate: date) {
+                addFruitsToEntry(enteryID: String(entryID), fruit: items.fruitID, amount: items.count) { isSuccess in
+                    completion(isSuccess)
+                }
+                return
+            }
             createEntery(date: date) { entryID in
                 if let id = entryID {
                     self.addFruitsToEntry(enteryID: String(id), fruit: items.fruitID, amount: items.count) {  isSuccess in
@@ -44,6 +57,11 @@ class FruitEntryViewModel: NSObject {
                 }
             }
         }
+    }
+    
+    
+    private func getEntryId(stringDate:String) -> Int? {
+        return currentEntriesList.first(where: {$0.date == stringDate})?.id
     }
     
     private func createEntery(date:String, completion: @escaping(_ enteryId: Int?) -> ()) {
@@ -75,8 +93,6 @@ class FruitEntryViewModel: NSObject {
 extension FruitEntryViewModel {
     
     func formatDate(selectedDate:Date) -> String? {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        return formatter.string(from: selectedDate)
+        return selectedDate.getStringFromDate()
     }
 }

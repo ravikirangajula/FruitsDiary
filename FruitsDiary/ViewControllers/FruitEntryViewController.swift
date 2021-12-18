@@ -17,16 +17,18 @@ struct FruitEntryFields {
 
 class FruitEntryViewController: BaseViewController {
     
-    @IBOutlet weak var firstStack: UIStackView!
     @IBOutlet weak var fruitTypeField: UITextField!
     @IBOutlet weak var fruitCOunt: UITextField!
     
+    @IBOutlet weak var pickerContainerView: UIView!
+    @IBOutlet weak var datelabel: UILabel!
     var mode:Mode = .entry
     var datePicker = UIDatePicker()
     var fruitID:Int = 0
+    var currentEntriesList:[CurrentEntires]?
     var fruitEntryObj:FruitEntryFields?
     lazy var viewModel: FruitEntryViewModel = { [weak self] in
-        return FruitEntryViewModel()
+        return FruitEntryViewModel(currentEntries: currentEntriesList ?? [])
     }()
 
     static func instantiate() -> FruitEntryViewController {
@@ -46,6 +48,7 @@ class FruitEntryViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureFields()
+        disableDateSelection()
     }
     
     @objc func cancel() {
@@ -93,8 +96,7 @@ extension FruitEntryViewController {
         datePicker.date = Date()
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(handleDateSelection), for: .valueChanged)
-        self.firstStack.insertArrangedSubview(datePicker, at: 1)
-        self.firstStack.layoutSubviews()
+        pickerContainerView.addSubview(datePicker)
     }
     
     private func validation() {
@@ -113,6 +115,28 @@ extension FruitEntryViewController {
         }
         if let fruitID = currentEntryObj.fruitId{
             self.fruitID = fruitID
+        }
+        if let date = currentEntryObj.entryDate {
+            self.datePicker.date = date.getDateFromString()
+//            let formatter = DateFormatter()
+//            formatter.dateFormat = "yyyy-MM-dd"
+//            formatter.timeZone = TimeZone.current
+//            let dateOut = formatter.date(from: date)
+//            self.datePicker.date = dateOut ?? Date()
+        }
+    }
+    
+    private func disableDateSelection() {
+        switch mode {
+        case .edit:
+            datePicker.isUserInteractionEnabled = false
+            datePicker.alpha = 0.5
+            datelabel.alpha = 0.5
+        default:
+            datePicker.isUserInteractionEnabled = true
+            datePicker.alpha = 1.0
+            datelabel.alpha = 1.0
+
         }
     }
 }

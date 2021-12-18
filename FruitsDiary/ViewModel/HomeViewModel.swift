@@ -18,11 +18,16 @@ class HomeViewModel: NSObject {
     
     override init() {
         super.init()
-        callAPi()
-        callCurrentList()
+        getAvailableFruisList()
+        getCurrentEntries()
     }
     
-    private func callAPi() {
+}
+//MARK: Private Methods
+extension HomeViewModel {
+    
+  
+    private func getAvailableFruisList() {
         APIWrapper.getRequest(with: "https://fruitdiary.test.themobilelife.com/api/fruit", decodingType: [AvailableFruit].self) { [weak self] res, Error in
             guard let self = self else { return }
             if let responseObj = res as? [AvailableFruit]{
@@ -32,11 +37,7 @@ class HomeViewModel: NSObject {
         }
     }
     
-    public func refreshList() {
-        callCurrentList()
-    }
-    
-    private func callCurrentList() {
+    private func getCurrentEntries() {
         APIWrapper.getRequest(with: "https://fruitdiary.test.themobilelife.com/api/entries", decodingType: [CurrentEntires].self) { [weak self] res, Error in
             if let res1 = res as? [CurrentEntires] {
                 print("res == \(res1)")
@@ -45,15 +46,6 @@ class HomeViewModel: NSObject {
                 self?.allEntries = list
                 self?.reloadTableView?()
             }
-        }
-    }
-    
-    
-    public func deleteEntry(url:String = "https://fruitdiary.test.themobilelife.com/api/entries") {
-        guard let url = URL(string: String(url)) else { return }
-        APIWrapper.deleteRequest(url: url) { [weak self] isSuccess in
-            self?.refreshList()
-            self?.reloadTableView?()
         }
     }
     
@@ -88,6 +80,22 @@ class HomeViewModel: NSObject {
             return totla
         }
         return totla
+    }
+}
+
+//MARK: Public Methods
+extension HomeViewModel {
+    
+    func refreshList() {
+        getCurrentEntries()
+    }
+    
+    func deleteEntry(url:String = "https://fruitdiary.test.themobilelife.com/api/entries") {
+        guard let url = URL(string: String(url)) else { return }
+        APIWrapper.deleteRequest(url: url) { [weak self] isSuccess in
+            self?.refreshList()
+            self?.reloadTableView?()
+        }
     }
 }
 
