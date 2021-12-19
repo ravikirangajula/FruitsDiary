@@ -18,6 +18,7 @@ struct DetailCell {
 class DetailViewModel: NSObject {
     
     var editEntry: ((_ item : FruitEntryFields?) -> ())?
+    var reloadTableView: (() -> ())?
     var item = CurrentEntires()
     lazy var availableFruits = UserDefaults.standard.availableFruits
     
@@ -58,6 +59,20 @@ class DetailViewModel: NSObject {
         return nil
     }
     
+    func getCurrentEntries() {
+        APIWrapper.getRequest(with: COMMON_URL, decodingType: [CurrentEntires].self) { [weak self] entries, Error in
+            if let currentEntries = entries as? [CurrentEntires] {
+                print("Current Entries == \(currentEntries)")
+                print("Current Entries Error == \(String(describing: Error))")
+                let sortedList = currentEntries.filter({$0.fruit?.count ?? 0 > 0}).first(where: {$0.id == self?.item.id})
+                if let item = sortedList {
+                  self?.item = item
+                }
+                self?.reloadTableView?()
+            }
+        }
+    }
+    
 }
 
 extension DetailViewModel: UITableViewDataSource {
@@ -75,6 +90,10 @@ extension DetailViewModel: UITableViewDataSource {
             return cell
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Entry Date: \(item.date ?? "-")"
     }
 }
 
