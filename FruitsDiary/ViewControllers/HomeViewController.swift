@@ -26,8 +26,14 @@ class HomeViewController: BaseViewController {
         super.viewWillAppear(animated)
         viewModel.refreshList()
         reloadTableView()
-        viewModel.reloadTableView = self.reloadTableView
-        viewModel.tableViewItemSelected = tableViewItemSelected
+        viewModel.reloadTableView = { [weak self] in
+            guard let self = self else { return }
+            self.reloadTableView()
+        }
+        viewModel.tableViewItemSelected = { [weak self] item in
+            guard let self = self else { return }
+            self.tableViewItemSelected(item)
+        }
     }
     
     @objc func addTapped() {
@@ -40,6 +46,10 @@ class HomeViewController: BaseViewController {
     
     @objc func clearAllTapped() {
         viewModel.deleteEntry()
+    }
+    
+    deinit {
+        print("HomeViewController memory released")
     }
 }
 

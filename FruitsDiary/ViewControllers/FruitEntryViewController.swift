@@ -82,6 +82,10 @@ class FruitEntryViewController: BaseViewController {
     @objc func dismissKeyBoard() {
         self.view.endEditing(true)
     }
+    
+    deinit {
+        print("FruitEntryViewController memory released")
+    }
 }
 
 //MARK: UI
@@ -151,7 +155,10 @@ extension FruitEntryViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == fruitTypeField {
             let vc = DropdownListViewController.instantiate()
-            vc.tableViewItemSelected = self.tableViewItemSelected
+            vc.tableViewItemSelected = { [weak self] item in
+                guard let self = self else { return }
+                self.tableViewItemSelected(item)
+            }
             self.navigationController?.pushViewController(vc, animated: true)
             return false
         }

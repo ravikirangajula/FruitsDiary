@@ -31,7 +31,10 @@ class DetailViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.editEntry = self.editEntry
+        viewModel.editEntry = { [weak self] item in
+            guard let self = self else { return }
+            self.editEntry(item)
+        }
         viewModel.getCurrentEntries()
         viewModel.reloadTableView = { [weak self] in
             DispatchQueue.main.async {
@@ -43,6 +46,9 @@ class DetailViewController: BaseViewController {
     @objc func addTapped() {
         let obj = FruitEntryFields(entryDate: item.date, entryId: item.id, fruitId: nil, fruitType: nil, fruitQuantity: nil)
         navigationLogic(item: obj)
+    }
+    deinit {
+        print("DetailViewController memory released")
     }
 
 }
